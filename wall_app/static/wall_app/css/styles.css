@@ -1,0 +1,41 @@
+/* body *{
+    outline: 1px dotted pink;
+} */
+
+input {
+    width: 290px;
+}
+
+h3 {
+    padding-top: 0 auto;
+    margin-top: 0 auto;
+}
+
+.container2{
+    margin-top: 0 auto;
+    background-image: linear-gradient(white, #F8F9FA);
+    min-height: 550px;
+}
+
+.img-nav {
+    width: 50px;
+    height: auto;
+}
+
+.form-control {
+    margin-top: 0 auto;
+    padding-top: 0 auto;
+}
+
+.navbar {
+    margin-bottom: 0 auto;
+    padding-bottom: 0 auto;
+}
+
+.nodisplay {
+    font-size: 0.95em;
+    margin-left: auto;
+    padding-left: 10px;
+    font-style: italic;
+}
+

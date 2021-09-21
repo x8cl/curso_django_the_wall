@@ -1,0 +1,86 @@
+{% extends "wall_app/base.html" %}
+
+{% block title %}Registration | Login{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-6">
+        <h3 class="text-center">Registration</h3>
+        <div class="container2 d-flex justify-content-center">
+            <div class="col-3 my-4 form-group">
+                <fieldset style="width:320px">
+                    <form class="form-control" action="/register" method="POST">
+                        {% csrf_token %}
+                        <label for="first_name">Fisrt Name</label><br>
+                        <input type="text" name="first_name" id="first_name" maxlength=30 required><br>
+                        <br>
+                        <label for="last_name">Last Name</label><br>
+                        <input type="text" name="last_name" id="last_name" maxlength=30 required><br>
+                        <br>
+                        <label for="email">Email</label><br>
+                        <input type="email" name="email" id="email" maxlength=100 required><br>
+                        <br>
+                        <label for="password">Password</label><br>
+                        <input class="mb-2" type="password" name="password" id="password" required><br>
+                        <br>
+                        <label for="password_confirm">Repeat password</label><br>
+                        <input type="password" name="password_confirm" id="password_confirm" required><br>
+                        <br>
+                        <div class="row d-flex justify-content-center mb-2">
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-outline-success" value="Register">Register</button> 
+                            </div>
+                            <div class="col-4">
+                                <button type="reset" class="btn btn-outline-success" value="Clear">Clear</button> 
+                            </div>
+                        </div>                    
+                    </form>
+                </fieldset> 
+            </div>        
+        </div>
+    </div>
+    <div class="col-6">
+        <h3 class="ps-5">Login</h3>
+        <div class="container2 d-flex text-start">
+            <div class="col-3 my-4 form-group">
+                <fieldset style="width:320px">
+                    <form class="form-control" action="/login" method="POST">
+                        {% csrf_token %}
+                        <label for="email_login">Email</label><br>
+                        <input type="email" name="email_login" id="email_login" maxlength=100><br>
+                        <br>
+                        <label for="password_login">Password</label><br>
+                        <input class="mb-2" type="password" name="password_login" id="password_login" maxlength="16"><br>
+                        <br>
+                        <div class="row d-flex justify-content-center mb-2">
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-outline-success" value="Login">Login</button> 
+                            </div>
+                            <div class="col-4">
+                                <button type="reset" class="btn btn-outline-success" value="Clear">Clear</button> 
+                            </div>
+                        </div>          
+                    </form>
+                    <br>
+                    {% if messages %}
+                        <ol class="messages nodisplay">
+                            {% for message in messages %}
+                                {% if message.tags == 'error' %}
+                                    <li class="text-danger">Error:<br>  {{ message }}</li>
+                                {% else %}
+                                    <li class="text-success"><b>{{ message }}</b></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ol>                
+                    {% endif %}
+                </fieldset>                                
+            </div>
+                             
+        </div>
+                 
+    </div>
+</div>
+{% endblock %}
